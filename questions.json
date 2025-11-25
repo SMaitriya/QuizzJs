@@ -1,0 +1,27 @@
+[
+  {
+    "question": "What is the name of the alternate dimension where the Demogorgon comes from?",
+    "options": ["The Netherworld", "The Upside Down", "The Void", "The Shadow Realm"],
+    "answer": "The Upside Down"
+  },
+  {
+    "question": "Which game system do the main group of boys frequently play in Mike's basement?",
+    "options": ["Atari 2600", "Nintendo Entertainment System (NES)", "Dungeons & Dragons", "Pac-Man Arcade"],
+    "answer": "Dungeons & Dragons"
+  },
+  {
+    "question": "What is Eleven's real name?",
+    "options": ["Jane Hopper", "Sara Wheeler", "Kali Prasad", "Eliza Ives"],
+    "answer": "Jane Hopper"
+  },
+  {
+    "question": "What job did Joyce Byers take on after the events of the first season?",
+    "options": ["A waitress at the diner", "A shop owner at Starcourt Mall", "Worked at Hawkins Lab", "A cashier at Melvald's General Store"],
+    "answer": "A cashier at Melvald's General Store"
+  },
+  {
+    "question": "Which character famously said the quote: 'Friends don't lie.'?",
+    "options": ["Dustin Henderson", "Mike Wheeler", "Eleven (El)", "Jim Hopper"],
+    "answer": "Eleven (El)"
+  }
+]
