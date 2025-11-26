@@ -4,6 +4,27 @@ let score = 0;
 
 const loadingMessage = document.getElementById('loading-message');
 const quizContainer = document.getElementById('quiz-container');
+let feedbackResult = document.getElementById('feedback-result');
+
+
+function handleOnClick(selectedAnswer) {
+
+    const correctAnswer = questionsData[currentQuestionIndex].answer
+
+    if(selectedAnswer === correctAnswer) {
+        score += 1;
+        console.log(score);
+        
+    }
+
+    message = selectedAnswer === correctAnswer ? "Good answer !" : "Wrong answer !";
+    feedbackResult.textContent = message;
+
+    
+
+
+
+}
 
 async function loadQuestions() {
     const url = "./questions.json"
@@ -18,6 +39,7 @@ async function loadQuestions() {
         questionsData = result;
         loadingMessage.style.display = 'none'
         renderQuestion();
+        
     } catch(error) {
         console.error(error.message);
     }
@@ -38,9 +60,11 @@ function renderQuestion() {
 
     const button = document.createElement("button");
     button.textContent = element;
+    button.addEventListener("click", () => handleOnClick(element)
+    );
 
     quizContainer.appendChild(button);
-    button.classList.add('ml-4', 'p-2', 'bg-blue-500', 'text-white', 'rounded');
+    button.classList.add('ml-4', 'p-2', 'bg-blue-500', 'text-white', 'rounded', 'hover:bg-blue-800');
 
 
     
