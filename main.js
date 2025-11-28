@@ -5,24 +5,43 @@ let score = 0;
 const loadingMessage = document.getElementById('loading-message');
 const quizContainer = document.getElementById('quiz-container');
 let feedbackResult = document.getElementById('feedback-result');
+const nextQuestionDiv = document.getElementById('next-question');
+
 
 
 function handleOnClick(selectedAnswer) {
 
     const correctAnswer = questionsData[currentQuestionIndex].answer
+    const options = document.querySelectorAll('button');
 
-    if(selectedAnswer === correctAnswer) {
-        score += 1;
-        console.log(score);
-        
-    }
+
 
     message = selectedAnswer === correctAnswer ? "Good answer !" : "Wrong answer !";
     feedbackResult.textContent = message;
 
-    
 
 
+    if(selectedAnswer === correctAnswer) {
+        score += 1;
+        console.log(score);
+        nextQuestion();
+
+        
+    }
+
+     options.forEach((e) => {
+            e.disabled = true;
+            if(e.textContent === correctAnswer) {
+                e.classList.add('bg-green-800');
+                e.classList.remove('hover:bg-blue-800');
+            }
+        })
+}
+
+function nextQuestion() {
+    const nextQuestionButton = document.createElement('button');
+    nextQuestionButton.textContent = 'Next Question';
+    nextQuestionDiv.appendChild(nextQuestionButton);
 
 }
 
