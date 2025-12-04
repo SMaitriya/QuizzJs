@@ -1,25 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Arcade Quiz</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div>
-      <h1> Questions</h1>
-
-    <p id="loading-message"> Chargement des questions</p>
-    <div id="quiz-container"></div>
-    <div id="feedback-result"></div>
-    <div id="next-question"></div>
-    </div>
-
-  
+<body class="bg-bg-arcade-base min-h-screen flex items-center justify-center p-4 retro-font high-contrast-text">
     
+    <div class="bg-bg-dark-screen border-4 border-secondary p-6 sm:p-10 rounded-lg shadow-2xl max-w-4xl w-full arcade-container-dark">
+        
+        <h1 class="text-xl sm:text-2xl font-extrabold text-primary mb-6 border-b-2 border-secondary pb-3 text-center uppercase tracking-wider shadow-inner shadow-primary/50">
+            👾 QUIZ
+        </h1>
 
+        <div id="progress-indicator" class="text-sm font-semibold text-secondary mb-6 text-center">
+        </div>
+
+        <p id="loading-message" class="text-base text-gray-400 italic text-center p-8">
+            SYSTEM BOOT... PRESS START
+        </p>
+        
+        <div id="quiz-container" class="text-sm sm:text-base"> 
+        </div>
+        
+        <div id="feedback-result" class="mt-6 text-center font-bold text-lg sm:text-xl min-h-[40px] text-primary"></div>
+        
+        <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4 mt-6">
+            <div id="next-question"></div>
+            <div id="show-result"></div>
+        </div>
+
+        <div id="final-score" class="mt-10 text-center text-3xl font-extrabold text-primary"></div>
+
+    </div>
+    
     <script src="main.js" defer></script>
 
 </body>
+
+    <style>
+        .retro-font {
+            font-family: 'Press Start 2P', cursive;
+        }
+        @keyframes border-neon-flash {
+            0%, 100% { border-color: #34D399; box-shadow: 0 0 10px #34D399; }
+            50% { border-color: #F87171; box-shadow: 0 0 10px #F87171; }
+        }
+        .arcade-container-dark {
+            animation: border-neon-flash 3s infinite alternate;
+        }
+        .high-contrast-text {
+            color: #E5E5E5;
+        }
+    </style>
+
 </html>
