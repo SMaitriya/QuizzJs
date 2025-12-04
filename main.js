@@ -14,19 +14,13 @@ function handleOnClick(selectedAnswer) {
     const correctAnswer = questionsData[currentQuestionIndex].answer
     const options = document.querySelectorAll('button');
 
-
-
     message = selectedAnswer === correctAnswer ? "Good answer !" : "Wrong answer !";
     feedbackResult.textContent = message;
-
 
 
     if(selectedAnswer === correctAnswer) {
         score += 1;
         console.log(score);
-        nextQuestion();
-
-        
     }
 
      options.forEach((e) => {
@@ -36,12 +30,27 @@ function handleOnClick(selectedAnswer) {
                 e.classList.remove('hover:bg-blue-800');
             }
         })
+        
+    nextQuestion();
+
 }
 
 function nextQuestion() {
     const nextQuestionButton = document.createElement('button');
     nextQuestionButton.textContent = 'Next Question';
     nextQuestionDiv.appendChild(nextQuestionButton);
+    nextQuestionButton.addEventListener("click", () => {
+        currentQuestionIndex++;
+        nextQuestionButton.remove();
+        feedbackResult.textContent = "";
+
+        if(currentQuestionIndex < questionsData.length){
+            renderQuestion();
+        }
+        else {
+            console.log(score);
+        }
+    })
 
 }
 
@@ -71,9 +80,7 @@ function renderQuestion() {
    questionElement = document.createElement("h2");
    questionElement.textContent = currentQuestionText;
    quizContainer.appendChild(questionElement);
-
    const currentOptionText = questionsData[currentQuestionIndex].options;
-
 
    currentOptionText.forEach(element => {
 
